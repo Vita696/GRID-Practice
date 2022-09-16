@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper"> <!-- Оболочка (grid-контейнер для header, main, footer) -->
+        <header class="header"> <!-- Header (grid-элемент для wrapper + grid-контейнер - header) -->
+            <a href="" class="header__logo"></a> <!-- grid-элемент для header -->
+            <nav class="header__menu"> <!-- grid-элемент для header -->
+                <ul class="header__list"> <!-- grid-контейнер   -->
+                    <li> <!-- grid-элемент для header__list-->
+                        <a href="" class="header__link">Пункт меню</a> 
+                    </li>
+                    <li>
+                        <a href="" class="header__link">Пункт меню</a>
+                    </li>
+                    <li>
+                        <a href="" class="header__link">Пункт меню</a>
+                    </li>
+                    <li>
+                        <a href="" class="header__link">Пункт меню</a>
+                    </li>
+                </ul>
+                <div class="header__burger">
+                    <span></span>
+                </div>
+            </nav>
+        </header>
+        <main class="main"> <!-- Контент (grid-элемент для wrapper + grid-контейнер - main) -->
+            <aside class="sidebar"> <!-- grid-элемент для main -->
+                <nav class="sidebar__menu">
+                    <ul class="sidebar__list">
+                        <li>
+                            <a href="" class="sidebar__link">Пункт меню</a>
+                        </li>
+                        <li>
+                            <a href="" class="sidebar__link">Пункт меню</a>
+                        </li>
+                        <li>
+                            <a href="" class="sidebar__link">Пункт меню</a>
+                        </li>
+                        <li>
+                            <a href="" class="sidebar__link">Пункт меню</a>
+                        </li>
+                        <li>
+                            <a href="" class="sidebar__link">Пункт меню</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <section class="content"> <!-- grid-элемент для main + grid-контейнер - content-->
+                <h1 class="content__title">GRID Layout - Практика</h1>
+                <section class="content__gallery gallery"> <!-- grid-элемент для content -->
+                    <h2 class="gallery__title">Галерея</h2>
+                    <div class="gallery__items"> <!-- grid-контейнер -->
+                        <div class="gallery__item gallery__item_big"> <!-- grid-элемент для "gallery__items -->
+                            <img src="img/01.jpg" alt="">
+                        </div>
+                        <div class="gallery__item"> <!-- grid-элемент для "gallery__items -->
+                            <img src="img/02.jpg" alt="">
+                        </div>
+                        <div class="gallery__item">
+                            <img src="img/03.jpg" alt="">
+                        </div>
+                        <div class="gallery__item">
+                            <img src="img/04.jpg" alt="">
+                        </div>
+                        <div class="gallery__item">
+                            <img src="img/05.jpg" alt="">
+                        </div>
+                        <div class="gallery__item">
+                            <img src="img/06.jpg" alt="">
+                        </div>
+                        <div class="gallery__item">
+                            <img src="img/07.jpg" alt="">
+                        </div>
+                        <div class="gallery__item gallery__item_big">
+                            <img src="img/08.jpg" alt="">
+                        </div>
+                        <div class="gallery__item">
+                            <img src="img/09.jpg" alt="">
+                        </div>
+                        <div class="gallery__item">
+                            <img src="img/10.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+                <section class="content__products products"> <!-- grid-элемент для content -->
+                    <h2 class="products__title">Товары</h2>
+                    <div class="products__items"> <!-- grid-контейнер -->
+                        <div class="products__item"> <!-- grid-элемент для products__items + grid-контейнер -->
+                            <a href="" class="products__image"> <!-- grid-элемент для products__item -->
+                                <img src="img/fls.jpg" alt="">
+                            </a>
+                            <a href="" class="products__name"> <!-- grid-элемент для products__item -->
+                                Кружка "Norway"
+                            </a>
+                            <a href="" class="products__button">Купить</a> <!-- grid-элемент для products__item -->
+                        </div>
+                        <div class="products__item">
+                            <a href="" class="products__image">
+                                <img src="img/fls.jpg" alt="">
+                            </a>
+                            <a href="" class="products__name">
+                                Кружка "Norway"
+                            </a>
+                            <a href="" class="products__button">Купить</a>
+                        </div>
+                        <div class="products__item">
+                            <a href="" class="products__image">
+                                <img src="img/fls.jpg" alt="">
+                            </a>
+                            <a href="" class="products__name">
+                                Кружка "Norway"
+                            </a>
+                            <a href="" class="products__button">Купить</a>
+                        </div>
+                        <div class="products__item">
+                            <a href="" class="products__image">
+                                <img src="img/fls.jpg" alt="">
+                            </a>
+                            <a href="" class="products__name">
+                                Кружка "Norway"
+                            </a>
+                            <a href="" class="products__button">Купить</a>
+                        </div>
+                        <div class="products__item">
+                            <a href="" class="products__image">
+                                <img src="img/fls.jpg" alt="">
+                            </a>
+                            <a href="" class="products__name">
+                                Кружка "Norway"
+                            </a>
+                            <a href="" class="products__button">Купить</a>
+                        </div>
+                        <div class="products__item">
+                            <a href="" class="products__image">
+                                <img src="img/fls.jpg" alt="">
+                            </a>
+                            <a href="" class="products__name">
+                                Кружка "Norway"
+                            </a>
+                            <a href="" class="products__button">Купить</a>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+        <footer class="footer"> <!-- Footer (grid-элемент для wrapper + grid-контейнер - footer) -->
+            <div class="footer__copy"> <!-- grid-элемент для footer -->
+                Copy, 2020
+            </div>
+            <div class="footer__text"> <!-- grid-элемент для footer -->
+                Lorem ipsum dolor sit amet.
+            </div>
+        </footer>
+    </div>   
+</body>
+</html>

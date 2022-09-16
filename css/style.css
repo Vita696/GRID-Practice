@@ -1,0 +1,314 @@
+/*Обнуление*/
+*,
+*:before,
+*:after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+	background-color: #333;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	font-size: 16px;
+	line-height: 24px;
+}
+a {
+	color: #794f45;
+}
+h1 {
+	font-size: 40px;
+	line-height: 1;
+	margin: 0px 0px 50px 0px;
+}
+h2 {
+	font-size: 30px;
+	line-height: 1;
+	margin: 0px 0px 20px 0px;
+}
+ul {
+	list-style: none;
+}
+/* ================ */
+.wrapper {
+	min-height: 100%;
+	display: grid;
+	grid-template: minmax(100px, auto) 1fr  minmax(70px, auto) / 1fr; /* рассшифровка чуть ниже */
+	grid-template-areas: 
+		"header"
+		"main"
+		"footer";
+}
+/* рассшифровка  */
+/* grid-template: minmax(100px, auto) 1fr  minmax(70px, auto) / 1fr; */
+/* rows */
+/* minmax(100px, auto) - header  */
+/* 1fr - content ( 1fr чтобы прибить footer к низу)*/
+/* 1fr  minmax(70px, auto) - footer */
+/* / 1fr - column */
+
+
+.header {
+	grid-area: header;
+	padding: 15px;
+	background-color: #794f45;
+	display: grid;
+	grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr; /* рассшифровка чуть ниже */
+	align-items: center;
+}
+/* рассшифровка  */
+/* grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto,1100px) 1fr; */
+/* rows - 1fr / */
+/* columns */
+/* 1fr - свободное пространство от content слева */
+/* minmax(auto, 300px) -  logo = sidebar*/
+/* minmax(auto, 1100px) - menu */
+/* 1fr - свободное пространство от content справа */
+/* Итого: content 1400px */
+
+
+.header__logo {
+	grid-column: 2 / 3; /* начинается со 2-ой линии сетки и заканчивается на 3-ей */
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background-color: #fff;	
+}
+
+.header__menu {
+	grid-column: 3 / 4; /* начинается с 3-ей линии сетки и заканчивается на 4-ой */
+}
+.header__list {
+	display: grid;
+	grid-auto-flow: column; /* автоматич. определение колонок */
+	justify-items: end; /* сдвинули впараво */
+}
+
+.header__list li {
+	margin: 0px 0px 0px 30px;
+}
+.header__link {
+	color: #fff;
+	font-size: 18px;
+}
+.header__burger {
+}
+@media (max-width: 992px) { /*  mobile-first */
+	.header__list {
+		display: none;
+	}
+	.header__menu { /* чтобы отправить бургер в конец */
+		display: grid;
+		justify-items: end; 
+	} 
+	.header__burger {
+		width: 30px;
+		display: grid;
+		align-items: center;
+		grid-template: repeat(3, 8px) / 1fr;
+	}
+	.header__burger::before {
+		content: "";
+		height: 2px;
+		width: 30px;
+		background-color: #fff;
+	}
+	.header__burger::after {
+		content: "";
+		height: 2px;
+		width: 30px;
+		background-color: #fff;
+	}
+	.header__burger span {
+		height: 2px;
+		width: 30px;
+		background-color: #fff;
+	}  
+}
+/* --------------------------- */
+.main {
+	padding: 30px 15px;	
+	/* переносим в @media (min-width: 992px) */
+	/* grid-area: main;
+	display: grid;
+	grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr; копируем из header */
+}
+
+
+.sidebar {
+	/* grid-column: 2 / 3; начинается со 2-ой линии сетки и заканчивается на 3-ей */
+	background-color: #7a956b;
+	padding: 30px 15px;
+	margin: 0px 0px 30px 0px;
+}
+.sidebar__menu {
+}
+.sidebar__list {
+}
+.sidebar__list li {
+	margin: 0px 0px 15px 0px;
+}
+
+.sidebar__link {
+	color: #fff;
+	font-size: 20px;
+}
+/* ------------------------------------------------- */
+.content {
+	/* grid-column: 3 / 4; начинается с 3-ей линии сетки и заканчивается на 4-ой
+	padding: 0px 0px 0px 30px; */
+}
+.content__title {
+}
+.content__gallery {
+	margin: 0px 0px 30px 0px;
+}
+@media (min-width: 992px) { /*  mobile-first */
+	.main {
+		grid-area: main;
+		display: grid;
+		grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr; /* копируем из header */
+	}
+	.sidebar {
+		grid-column: 2 / 3; /* начинается со 2-ой линии сетки и заканчивается на 3-ей */
+		margin: 0;
+	}
+	.content {
+		grid-column: 3 / 4; /* начинается с 3-ей линии сетки и заканчивается на 4-ой */
+		padding: 0px 0px 0px 30px;
+	}
+}
+/* ---------------------------------- */
+.gallery {
+}
+.gallery__title {
+}
+.gallery__items {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Создание ячеек */
+}
+
+.gallery__item {
+	position: relative;
+	padding: 0px 0px 85% 0px;
+}
+.gallery__item img {  /* см. Адаптивные изображения */
+	position: absolute;
+	top: o;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gallery__item_big {
+	/* grid-column: span 2;
+	grid-row: span 2; */
+}
+@media (min-width: 767px) {
+	.gallery__item_big {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+}
+/* ----------------------------------- */
+.content__products {
+}
+.products {
+}
+.products__title {
+}
+.products__items {
+	display: grid;
+	column-gap: 30px;
+	row-gap: 50px;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* копируем из gallery Создание ячеек */
+	/* grid-auto-rows: 1fr; если хоть в одной карточке надпись увеличится и карточка станет больше,
+	 то все карточки станут такие же */
+}
+
+.products__item {
+	display: grid;
+	grid-auto-flow: row; /* выстраиваем все элементы карточки в 1 ряд по вертикали:фото, название, кнопку"купить" */
+	grid-template: auto 1fr minmax(40px, auto) / 1fr;	
+}
+/* расшифровка - grid-template: auto 1fr minmax(40px, auto) / 1fr; */
+/* row: */
+/* auto - фото */
+/* 1fr - название товара заполняет всё свободное пространство */
+/* minmax(40px, auto) - кнопка */
+/* /1fr - ширина column */
+
+.products__image {
+	position: relative;
+	padding: 0px 0px 90% 0px;
+	margin: 0px 0px 20px 0px;
+}
+.products__image img {
+	position: absolute;
+	top: o;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.products__name {
+	font-size: 24px;
+	color: #fff;
+	line-height: 30px;
+	margin: 0px 0px 20px 0px;
+}
+.products__button {
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-decoration: none;
+	line-height: 40px;
+	justify-self: start; /* прижимаем кнопку к левому краю */
+	background-color: #77608d;
+	padding: 0px 20pxs;
+}	
+/* -------------------------------------- */
+.footer {
+	background-color: #77608d;
+	display: grid;
+	grid-area: footer;
+	grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr; /* копируем из header */
+	padding: 15px;
+	align-items: center;
+}
+.footer__copy {
+	/* grid-column: 2 / 3; */
+}
+.footer__text {
+	/* grid-column: 3 / 4;
+	text-align: right; */
+}
+
+@media (min-width: 550px) {
+	.footer__copy {
+		grid-column: 2 / 3;
+	}
+	.footer__text {
+		grid-column: 3 / 4;
+		text-align: right;
+	}
+}
+
+@media (max-width: 550px) {
+	.footer {
+		grid-template: 1fr 1fr / 1fr; /* 2 ряда и 1 колонка */
+		text-align: center;
+	}
+	.footer__copy {
+		order: 2;
+	}
+	.footer__text {
+		order: 1;
+	}
+
+}
